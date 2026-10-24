@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khaja</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#050008;
+  font-family:Arial,sans-serif;
+}
+
+.text{
+  color:#ff4f9a;
+  font-size:50px;
+  font-weight:bold;
+  text-align:center;
+  text-shadow:
+    0 0 10px #ff4f9a,
+    0 0 30px #ff0066,
+    0 0 60px #ff0066;
+  animation:zoom 1.5s infinite alternate;
+  z-index:5;
+}
+
+@keyframes zoom{
+  from{
+    transform:scale(.9);
+  }
+  to{
+    transform:scale(1.15);
+  }
+}
+
+.heart{
+  position:absolute;
+  bottom:-50px;
+  animation:up 5s linear infinite;
+}
+
+@keyframes up{
+  0%{
+    transform:translateY(0) rotate(0);
+    opacity:0;
+  }
+  20%{opacity:1}
+  100%{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="text">
+  Fuck You Khaja 😈
+</div>
+
+<script>
+function heart(){
+  let h=document.createElement("div");
+  h.className="heart";
+
+  let icons=["💀","😈","🔥","💢","😎"];
+  h.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(20+Math.random()*35)+"px";
+  h.style.animationDuration=(3+Math.random()*4)+"s";
+
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),7000);
+}
+
+setInterval(heart,250);
+</script>
+
+</body>
+</html>
